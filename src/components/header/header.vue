@@ -2,6 +2,7 @@
   <div class="header">
     <span class="icon"> </span>
     <h1 class="text">FW Music</h1>
+    
     <router-link></router-link>
   </div>
 </template>
@@ -23,6 +24,7 @@ export default {};
     vertical-align: top;
     margin-top: 6px;
     margin-right: 9px;
+    //使用mix-in，把定义的变量添加到这里
     @include bg-image("logo");
     background-size: 30px 32px;
   }
