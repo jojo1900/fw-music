@@ -5,22 +5,27 @@ import TopList from "@/views/top-list";
 import Search from "@/views/search";
 const routes = [
   {
+    path: '/',
+    redirect: '/recommend'
+  },
+  {
     path: '/recommend',
-    compnent: Recommend
+    component: Recommend
   },
   {
     path: '/singer',
-    compnent: Singer
+    component: Singer
   },
   {
     path: '/top-list',
-    compnent: TopList
+    component: TopList
   },
   {
     path: '/search',
-    compnent: Search
+    component: Search
   },
 ]
+//创建路由对象： router
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes

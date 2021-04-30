@@ -6,7 +6,9 @@
       :key="tab.path"
       :to="tab.path"
     >
-      <span class="tab-link">{{ tab.name }}</span>
+      <span class="tab-link">
+        {{ tab.name }}
+      </span>
     </router-link>
   </div>
 </template>
@@ -38,6 +40,7 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
 .tab {
   display: flex;
@@ -52,7 +55,6 @@ export default {
     .tab-link {
       padding-bottom: 5px;
       color: $color-text-l;
-      // color: aqua;
     }
 
     &.router-link-active {

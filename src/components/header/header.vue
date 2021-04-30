@@ -2,15 +2,14 @@
   <div class="header">
     <span class="icon"> </span>
     <h1 class="text">FW Music</h1>
-    
-    <router-link></router-link>
+    <!-- <router-link></router-link> -->
   </div>
 </template>
 
 <script>
 export default {};
 </script>
-    
+
 <style lang="scss" scoped>
 .header {
   height: 44px;
