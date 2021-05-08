@@ -1,8 +1,8 @@
 <template>
   <m-header></m-header>
-  <tab>
-    <router-view></router-view>
-  </tab>
+  <tab></tab>
+  <!--  router-view 把路由对应的组件渲染出来-->
+  <router-view></router-view>
 </template>
 <script>
 import Header from "@/components/header/header";

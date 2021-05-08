@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Recommend from "@/views/recommend";
-import Singer from "@/views/singer";
-import TopList from "@/views/top-list";
-import Search from "@/views/search";
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+const Recommend = () => import('@/views/recommend'/* webpackChunkName: "recommend" */)
+const Singer = () => import('@/views/singer'/* webpackChunkName: "singer" */)
+const TopList = () => import('@/views/top-list'/* webpackChunkName: "top-list" */)
+const Search = () => import('@/views/search'/* webpackChunkName: "search" */)
+
 const routes = [
   {
     path: '/',
@@ -10,24 +12,24 @@ const routes = [
   },
   {
     path: '/recommend',
-    component: Recommend
+    component: Recommend,
   },
   {
     path: '/singer',
-    component: Singer
+    component: Singer,
   },
   {
     path: '/top-list',
-    component: TopList
+    component: TopList,
   },
   {
     path: '/search',
-    component: Search
-  },
+    component: Search,
+  }
 ]
-//创建路由对象： router
+
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
