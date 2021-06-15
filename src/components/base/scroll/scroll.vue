@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import { ref } from "vue";
 import useScroll from "./use-scroll";
 export default {
   name: "scroll",

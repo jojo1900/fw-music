@@ -9,7 +9,7 @@ export default function useScroll(warapperRef,options){
     const scroll = ref(null)
     //mounted之后通过ref拿到挂载scroll的实例
     onMounted(() => {
-        scroll.vue = new BScroll(warapperRef.value, {
+        scroll.value = new BScroll(warapperRef.value, {
             observeDOM: true,
             ...options
         })
