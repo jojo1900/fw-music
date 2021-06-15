@@ -1,28 +1,20 @@
 const registerRouter = require('./backend/router')
-
 module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        // 全局引入变量和 mixin
+        // 全局引入sass可以识别的 sass 变量和 mixin
         additionalData: `
-          @import "@/assets/scss/variable.scss";
-          @import "@/assets/scss/mixin.scss";
-        `
+        @import "@/assets/scss/variable.scss";
+        @import "@/assets/scss/mixin.scss";
+      `
       }
     }
   },
+  //TODO:干啥用的?
   devServer: {
     before(app) {
       registerRouter(app)
     }
-  },
-  configureWebpack: (config) => {
-    if (process.env.npm_config_report) {
-      const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-      config.plugins.push(new BundleAnalyzerPlugin())
-    }
-  },
-  productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === 'production' ? '/music-next/' : '/'
+  }
 }
