@@ -6,14 +6,14 @@
           <img :src="item.pic" />
         </a>
       </div>
-    </div>
-    <div class="dots-wrapper">
-      <span
-        class="dot"
-        v-for="(item, index) in sliders"
-        :key="item.id"
-        :class="{ active: currentPageIndex === index }"
-      ></span>
+      <div class="dots-wrapper">
+        <span
+          class="dot"
+          v-for="(item, index) in sliders"
+          :key="item.id"
+          :class="{ active: currentPageIndex === index }"
+        ></span>
+      </div>
     </div>
   </div>
 </template>
@@ -47,22 +47,23 @@ export default {
   min-height: 1px;
   font-size: 0;
   touch-action: pan-y;
+  overflow: hidden;
   .slider-group {
-    display: inline-block;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    a {
-      display: block;
-      width: 100%;
-    }
-    img {
-      display: block;
-      margin: 0 4px;
-      width: 8px;
-      height: 8px;
-      transform: translateZ(1px);
-      border-radius: 50%;
-      background: $color-text-l;
+    position: relative;
+    overflow-x: hidden;
+    white-space: nowrap;
+    .slider-page {
+      display: inline-block;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      a {
+        display: block;
+        width: 100%;
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
     }
   }
   .dots-wrapper {
