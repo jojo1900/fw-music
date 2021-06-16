@@ -1,6 +1,5 @@
 <template>
-  <div class="recommend">
-    <Loading v-if="loading" />
+  <div class="recommend" v-loading="loading">
     <div class="slider-wrapper">
       <div class="slider-content">
         <Slider :sliders="sliders" v-if="sliders.length > 0"></Slider>
@@ -45,20 +44,27 @@ export default {
   name: "recommend",
   components: {
     Slider,
-    Scroll,
-    Loading
+    Scroll
   },
   data() {
     return {
       sliders: [],
-      albums: [],
-      loading: false
+      albums: []
+      // loading: false
     };
   },
+  computed: {
+    loading() {
+      console.log("computed", !this.sliders.length && !this.albums.length);
+
+      return !this.sliders.length && !this.albums.length;
+    }
+  },
   async created() {
-    this.loading = true;
+    console.log("created");
+    // this.loading = true;
     const result = await getRecommend();
-    this.loading = false;
+    // this.loading = false;
     this.sliders = result.sliders;
     this.albums = result.albums;
     console.log(result.sliders);
