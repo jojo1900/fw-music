@@ -14,7 +14,11 @@ export default {
       title: "正在加载..."
     };
   },
-  methods() {}
+  methods: {
+    setTitle(title) {
+      this.title = title;
+    }
+  }
 };
 </script>
 

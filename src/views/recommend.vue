@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend" v-loading="loading">
+  <div class="recommend" v-loading:[loadingText]="loading">
     <div class="slider-wrapper">
       <div class="slider-content">
         <Slider :sliders="sliders" v-if="sliders.length > 0"></Slider>
@@ -48,13 +48,13 @@ export default {
   data() {
     return {
       sliders: [],
-      albums: []
+      albums: [],
+      loadingText: "精彩马上来"
     };
   },
   computed: {
     loading() {
       console.log("computed", !this.sliders.length && !this.albums.length);
-
       return !this.sliders.length && !this.albums.length;
     }
   },
