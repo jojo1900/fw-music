@@ -21,8 +21,6 @@ const loadingDirective = {
       binding.value===true ? append(el) : remove(el)
     }
   }
-
-
 }
 export default loadingDirective
 

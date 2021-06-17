@@ -39,7 +39,6 @@
 import { getRecommend } from "@/service/recommend";
 import Slider from "@/components/base/slider/slider";
 import Scroll from "@/components/base/scroll/scroll";
-import Loading from "@/components/base/loading/loading";
 export default {
   name: "recommend",
   components: {
@@ -50,7 +49,6 @@ export default {
     return {
       sliders: [],
       albums: []
-      // loading: false
     };
   },
   computed: {
@@ -62,9 +60,7 @@ export default {
   },
   async created() {
     console.log("created");
-    // this.loading = true;
     const result = await getRecommend();
-    // this.loading = false;
     this.sliders = result.sliders;
     this.albums = result.albums;
     console.log(result.sliders);
