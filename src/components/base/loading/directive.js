@@ -2,7 +2,7 @@ import {
   createApp
 } from 'vue';
 import Loading from './loading'
-
+import { addClass} from '@/assets/js/dom.js'
 const relativeCls = 'g-relative'
 
 const loadingDirective = {

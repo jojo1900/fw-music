@@ -1,5 +1,5 @@
 <template>
-  <div class="singer">
+  <div class="singer" v-loading="loading">
     <IndexList :data="data"></IndexList>
   </div>
 </template>
@@ -12,6 +12,11 @@ export default {
   components: {
     IndexList
   },
+  computed: {
+    loading() {
+      return this.data.length === 0;
+    }
+  },
   data() {
     return {
       data: []
@@ -19,13 +24,13 @@ export default {
   },
   async created() {
     const result = await getSingerList();
-    this.data = result;
-    console.log(result);
+    this.data = result.singers;
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .singer {
+  position: fixed;
 }
 </style>
