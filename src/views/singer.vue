@@ -31,6 +31,11 @@ export default {
 
 <style lang="scss" scoped>
 .singer {
-  min-height: 500px;
+  // min-height: 500px;
+  position: fixed;
+  width: 100%;
+  top: 88px;
+  bottom: 0;
+  overflow: scroll;
 }
 </style>
