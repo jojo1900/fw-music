@@ -1,6 +1,12 @@
 <template>
-  <Scroll class="index-list" @scroll="onScroll" ref="scrollRef">
-    <ul>
+  <Scroll
+    class="index-list"
+    @scroll="onScroll"
+    ref="scrollRef"
+    :probe-type="3"
+    @scroll="onScroll"
+  >
+    <ul ref="groupRef">
       <li v-for="group in data" :key="group.title" class="group">
         <h2 class="title">{{ group.title }}</h2>
         <ul>
@@ -46,6 +52,7 @@ export default {
       fixedStyle,
       currentIndex
     } = useFixed(props);
+    return { groupRef };
   },
   methods: {
     getTitle() {}

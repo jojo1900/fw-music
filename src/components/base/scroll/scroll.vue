@@ -12,11 +12,17 @@ export default {
     click: {
       type: Boolean,
       default: true
+    },
+    probeType: {
+      type: Number,
+      default: 0
     }
   },
-  setup(props) {
+  //组件内部可以定义自定义事件
+  emits: ["scroll"],
+  setup(props, { emit }) {
     const rootRef = ref(null);
-    useScroll(rootRef, props);
+    useScroll(rootRef, props, emit);
 
     return {
       rootRef
