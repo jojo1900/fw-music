@@ -24,6 +24,13 @@ export default {
   },
   async created() {
     const result = await getSingerList();
+    const o = {
+      id: 1202,
+      name: "陈🐷君",
+      mid: "",
+      pic: "../assets/images/chenzhujun.jpg"
+    };
+    result.singers[3].list.push(o);
     this.data = result.singers;
   }
 };
