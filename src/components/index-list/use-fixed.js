@@ -10,22 +10,21 @@ export default function useFixed(props) {
     if (currentIndex.value === 0) {
       return "";
     }
-    const currentGroup = listHeights[currentIndex.value];
+    const currentGroup = props.data[currentIndex.value];
     return currentGroup ? currentGroup.title : "";
   });
 
   watch(
-    () => {
-      props.data;
-    },
+    () => props.data,
     async () => {
       await nextTick();
       calculate();
     }
   );
   watch(scrollY, newY => {
-    for (let i = 0; i < listHeights.length - 1; i) {
-      if (newY > listHeights[i] && newY <= listHeights[i + 1]) {
+    console.log(newY, listHeights.value);
+    for (let i = 0; i < listHeights.value.length - 1; i) {
+      if (newY > listHeights.value[i] && newY <= listHeights.value[i + 1]) {
         currentIndex.value = i;
       }
     }
@@ -39,12 +38,12 @@ export default function useFixed(props) {
     const listHeightsVal = listHeights.value;
     listHeightsVal.length = 0;
     let height = 0;
-    listHeights.push(height);
+    listHeightsVal.push(height);
     for (let i = 0; i < list.length; i++) {
       const element = list[i];
       //这里要累加；clientHeight指容器高度
       height += element.clientHeight;
-      listHeights.push(height);
+      listHeightsVal.push(height);
     }
   }
 
