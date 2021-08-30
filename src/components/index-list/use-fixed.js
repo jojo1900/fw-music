@@ -13,6 +13,7 @@ export default function useFixed(props) {
   const fixedTitle = computed(() => {
     console.log("currentIndex", currentIndex.value);
     console.log(111);
+    console.log(222);
     if (currentIndex.value === 0) {
       return "";
     }
