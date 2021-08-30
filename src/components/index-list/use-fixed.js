@@ -1,4 +1,9 @@
-import { ref, watch, nextTick, computed } from "vue";
+import {
+  ref,
+  watch,
+  nextTick,
+  computed
+} from "vue";
 export default function useFixed(props) {
   const groupRef = ref(null);
   const listHeights = ref([]);
@@ -7,6 +12,7 @@ export default function useFixed(props) {
 
   const fixedTitle = computed(() => {
     console.log("currentIndex", currentIndex.value);
+    console.log(111);
     if (currentIndex.value === 0) {
       return "";
     }
@@ -29,6 +35,7 @@ export default function useFixed(props) {
       }
     }
   });
+
   function onScroll(pos) {
     scrollY.value = -pos.y;
   }
